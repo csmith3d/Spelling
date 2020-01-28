@@ -271,8 +271,8 @@ function initialize() {
     for(var i=11; i<=30; i++) {
 	var val = i/10.0;
 	var el = document.createElement("option");
-	if((val == 1.4 && isMac) ||
-	   (val == 2.0 && !isMac)) {
+	if((val == 1.0 && isMac) ||
+	   (val == 1.0 && !isMac)) {
 	    el.textContent = val + " (Default)";
 	} else {
 	    el.textContent = val;
