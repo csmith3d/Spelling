@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link rel="icon" type="image/png" href="Spelling/SpellingIcon32.png">
-		<meta charset="utf-8">
-		<title>Spelling</title>
-		<style type="text/css">
-			htmk, body {font-size: 5vmin; width: 100%}
-			main {position: fixed: top: 0px; left: 0px; width: 100%;}
-			h1 {font-size 250%}
-			p {line-height: 1.2; width:100%}
-			ul {line-height: 1.5;}
-			#SpellingIcon { width: 10vmin; height: 10vmin; vertical-align: middle;}
-		</style>
-	</head>
-	<body>
-		<main>
-			<h1>Spelling</h1>
-			<p>	Spelling is a simple web application for studying spelling lists.</p>
-			<a href="Spelling"><p><img src="Spelling/SpellingIcon256.png" alt="Spelling" id="SpellingIcon" /><span style="font-size: 150%; padding-left: 0.25em;">Open Now</span></p></a>
-			<p>Features and instructions (including phone and tablet installation):
-				<ul>
-					<li> Installation instructions:
-						<ul>
-							<li>Can be installed as an icon on the home screen of a phone or tablet.</li>
-							<li>Android: Open in Chrome. Tap the three dots in the upper right of the browser and select "Add to Home screen."</li>
-							<li>iOS: Open in Safari.  In the browser controls, tap the icon that's a square with an arrow coming up out of it.  Scroll over and select "Add to Home Screen."</li>
-						</ul>
-					</li>
-				</ul>
-			</p>
-		</main>
-	</body>
+  <head>
+    <link rel="icon" type="image/png" href="Spelling/SpellingIcon32.png">
+    <meta charset="utf-8">
+    <title>Spelling</title>
+    <style type="text/css">
+      htmk, body {font-size: 5vmin; width: 100%}
+      main {position: fixed: top: 0px; left: 0px; width: 100%;}
+      h1 {font-size 250%}
+      p {line-height: 1.2; width:100%}
+      ul {line-height: 1.5;}
+      #SpellingIcon { width: 10vmin; height: 10vmin; vertical-align: middle;}
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Spelling</h1>
+      <p>Spelling is a simple web application for studying spelling lists.</p>
+      <a href="Spelling"><p><img src="Spelling/SpellingIcon256.png" alt="Spelling" id="SpellingIcon" /><span style="font-size: 150%; padding-left: 0.25em;">Open Now</span></p></a>
+      <p>Instructions (including phone and tablet installation):
+	<ul>
+	  <li>Note: this has been tested on iOS, but not Android.  It probably works on Android, but maybe not.  It should work on a computer.</li>
+	  <li>The "Say It" button will say the word you should spell.  On iOS and possibly Android, you can't have your phone set to just vibrate -- the ringer must be on for speech synthesis to work.</li>
+	  <li>Type the word and press enter or tap/click the Check Spelling button.  If you're right, you'll go on to the next word.  If you're not, it will say "Not quite" and tell you the word again, along with a semi-phonetic version of the word with separated syllables -- this may help you learn the word (or it might not).</li>
+	  <li>If you can't figure a word out, click/tap the "Show Me" button.  This will place the correct spelling in the text entry field.  Clicking/tapping "Check Spelling" will then move you to the next word.
+	  <li>Your progress is charted on the right with a number representing each word.  If you get a word right on the first try, it turns green, and you won't see it again this session.  If it takes two or more tries, then the number stays black, and you'll review it again the next time through.</li>
+	  <li>Once you've correctly spelled each word without a mistake, you'll get an alert that you're done, and the app will reset to the first word.</li>
+	  <li> There are settings options in the upper left (the button with three horizontal lines).  You can select the voice, how fast it speaks, and which word list you want to study.</li>
+	  <li> Installation instructions:
+	    <ul>
+	      <li>This web app can be installed as an icon on the home screen of a phone or tablet.</li>
+	      <li>Android: Open in Chrome. Tap the three dots in the upper right of the browser and select "Add to Home screen."</li>
+	      <li>iOS: Open in Safari.  In the browser controls, tap the icon that's a square with an arrow coming up out of it.  Scroll over and select "Add to Home Screen."</li>
+	      <li>Note: Web apps are finicky about updates.  In theory, if you have an active internet connection and open the app and there's a new version available, then the next time you launch the app, the new version will be up . . . but not always.  You may need to uninstall the app from your home screen, visit the app URL again in your browser, hit refresh a couple times, and re-install the icon on your home screen.  Then, launch it from your home screen, quit it, and launch it again.  That usually gets it to update for me.</li>
+	    </ul>
+	  </li>
+	</ul>
+      </p>
+    </main>
+  </body>
 </html>
