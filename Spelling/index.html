@@ -31,7 +31,7 @@
 			#settings { font-size: 5vmin; z-index:100; position: fixed; top: 10%; left: 10%; width: 80%; height: 80%; border-style: solid; background-color: #FFFACD; visibility: hidden; display: flex; align-items: center; justify-content: center;}
 			#speechVoiceSelector { font-size: 4vmin;}
 			#speechRateSelector { font-size: 4vmin;}
-			#spellingListSelector { font-size 4vmin;}
+			#spellingListSelector { font-size: 4vmin;}
 			#okButton { font-size: 5vmin; }
 			#cancelButton {font-size: 5vmin; }
 			#advanceButton {font-size: 5vmin;}
@@ -54,10 +54,10 @@
 		</div>
 		<div id="settingsButtonDiv"><button id="settingsButton" onclick="showSettings()">&equiv;</button></div>
 		<div id="mainDiv">
-		  <button id="sayButton" onclick="readCurrWord()">Say It</button><br />
-		  <input type="text" id="spellGuess" /><br />
-		  <button id="advanceButton" onclick="checkSpelling()">Check Spelling</button><br />
-		  <button id="showMeButton" onclick="showMe()">Show Me</button><br />
+		  <button id="sayButton" onclick="readCurrWord(); focusText();">Say It</button><br />
+		  <input type="text" id="spellGuess" onkeyup="if (event.keyCode == 13) checkSpelling()" /><br />
+		  <button id="advanceButton" onclick="checkSpelling(); focusText();">Check Spelling</button><br />
+		  <button id="showMeButton" onclick="showMe(); focusText();">Show Me</button><br />
 		</div>
 		<div id="progressDiv">
 		</div>

@@ -46,7 +46,7 @@ var spellingLists = [
     ["enough", "through", "goes", "does", "question", "slowly", "suddenly", "probably"]
 ];
 var pronunciationLists = [
-    ["bet er", "fohll ow", "hap enn", "diff er ent", "pee-oh ple", "trou ble", "terr i ble", "awe some", "speh see-al"],
+    ["bet er", "fole ow", "happ enn", "diff er ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
     ["ee nuff", "through", "goes", "does", "quest ion", "slow lee", "sud enn lee", "pro bab lee"]
 ];
 
@@ -58,22 +58,11 @@ var failOnCurrent = 0;
 
 //Parameters the user can change
 var lang = "en-gb";
-var rate = 2.0;
-if(isMac) {
-    rate = 1.4;
-}
+var rate = 1.0;
+//if(isMac) {
+//    rate = 1.4;
+//}
 var voiceIndex;
-
-//Speech utterances
-var sayTime = new SpeechSynthesisUtterance("Time");
-sayTime.lang = lang;
-sayTime.rate = rate;
-var sayNothing = new SpeechSynthesisUtterance("");
-sayNothing.lang = lang;
-sayNothing.rate = rate;
-var sayFiveSeconds = new SpeechSynthesisUtterance("Five seconds");
-sayFiveSeconds.lang = lang;
-sayFiveSeconds.rate = rate;
 
 //General storage
 var voices;
@@ -121,9 +110,17 @@ function getWord(listNum, wordNum) {
     return spellingLists[listNum][wordNum];
 }
 
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
 function getPronunciation(listNum, wordNum) {
-    var p = pronunciationLists[listNum][wordNum];
-    p = p.replace(/\s/g, ", ! ");
+    var p = toTitleCase(pronunciationLists[listNum][wordNum]);
+    p = p.replace(/\s/g, "... ") + "...";
     return p;
 }
 
@@ -134,6 +131,10 @@ function sayIt(text) {
     utterance.lang = voice.lang;
     utterance.rate = rate;
     window.speechSynthesis.speak(utterance);
+}
+
+function focusText() {
+    spellGuessElem.focus();
 }
 
 function readWordsTest() {
@@ -147,10 +148,8 @@ function readWordsTest() {
 	    if(true) {//confirm("Say next?")) {
 		var word = getWord(j,i);
 		var pronunciation = getPronunciation(j,i);
-		sayIt(word);
-		sayIt(". !");
-		sayIt(pronunciation);
-		sayIt(". !");
+		sayIt(word + "...");
+		sayIt(pronunciation + "...");
 	    } else {
 		break;
 	    }
@@ -165,6 +164,7 @@ function readCurrWord() {
     rate = speechRateSelectorElem.options[rateIndex].value;
 
     sayIt(getWord(currList, currWordIndex));
+
 }
 
 function advanceToNextWord() {
@@ -207,8 +207,8 @@ function checkSpelling() {
 	//Incorrect
 	failOnCurrent = 1;
 	sayIt("Not quite. !");
-	sayIt(getWord(currList, currWordIndex));
-	sayIt(". !");
+	sayIt(getWord(currList, currWordIndex)+ ". !");
+
 	sayIt(getPronunciation(currList, currWordIndex));
     }
 }
@@ -226,7 +226,7 @@ function setProgress() {
 	} else {
 	    htmlContent += "black";
 	}
-	htmlContent += ";\">" + i + "</span></td></tr>"
+	htmlContent += ";\">" + (i+1) + "</span></td></tr>"
     }
     htmlContent += "</table>";
     progressDivElem.innerHTML = htmlContent;
@@ -314,6 +314,8 @@ function initialize() {
     initializeCorrect(currList);
     setProgress();
 
+    focusText();
+
 }
 
 
@@ -338,10 +340,6 @@ function settingsOK() {
     if(voiceIndex >= 0) {
 	//update the utterances
 	var voice = voices[speechVoiceSelectorElem.options[voiceIndex].value];
-	sayFiveSeconds.lang = voice.lang;
-	sayFiveSeconds.voice = voice;
-	sayTime.lang = voice.lang;
-	sayTime.voice = voice;
 	//store to localStorage
 	if(typeof localStorage === 'object') {
 	    try {
