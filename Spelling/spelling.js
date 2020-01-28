@@ -309,6 +309,17 @@ function initialize() {
     //  it until we're confident it loaded the full list
     voiceGetterInterval = setInterval(function() {getVoicesList();}, 200);
 
+    if(typeof localStorage === 'object') {
+	try {
+	    var storedIndex = localStorage.storedListIndex;
+	    if(storedIndex >= 0 && storedIndex < spellingListSelectorElem.options.length) {
+		spellingListSelectorElem.selectedIndex = storedIndex;
+	    }
+	} catch (e) {
+	    //silently ignore
+	}
+    }
+
     settingsOK();
 
     initializeCorrect(currList);
@@ -367,6 +378,13 @@ function settingsOK() {
     if(listIndex != currList) {
 	currList = listIndex;
 	restart();
+    }
+    if(typeof localStorage === 'object') {
+	try {
+	    localStorage.storedListIndex = listIndex;
+	} catch(e) {
+	    //silently ignore
+	}
     }
 
     //Hide settings panel
