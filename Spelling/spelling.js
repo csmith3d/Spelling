@@ -43,11 +43,11 @@ var initializedSpeech = 0;
 //Spelling lists
 var spellingLists = [
     ["better", "follow", "happen", "different", "people", "trouble", "terrible", "awesome", "special"],
-    ["enough", "through", "goes", "does", "question", "slowly", "suddenly", "probably"]
+    ["enough", "through", "goes", "does", "question", "slowly", "suddenly", "probably", "trouble"]
 ];
 var pronunciationLists = [
     ["bet er", "fole ow", "happ enn", "diff er ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
-    ["ee nuff", "through", "goes", "does", "quest ion", "slow lee", "sud enn lee", "pro bab lee"]
+    ["ee nuff", "through", "goes", "does", "quest ion", "slow lee", "sud enn lee", "pro bab lee", "trow-ooh bleh"]
 ];
 
 var correct = [];
