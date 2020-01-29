@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" manifest="spelling.appcache">
 	<head>
-		<link rel="icon" type="image/png" href="KBTimerIcon32.png">
+		<link rel="icon" type="image/png" href="SpellingIcon32.png">
 		<meta charset="utf-8">
 
 		<!-- Tell devices that this can be a web app" -->
@@ -55,7 +55,7 @@
 		<div id="settingsButtonDiv"><button id="settingsButton" onclick="showSettings()">&equiv;</button></div>
 		<div id="mainDiv">
 		  <button id="sayButton" onclick="readCurrWord(); focusText();">Say It</button><br />
-		  <input type="text" id="spellGuess" onkeyup="if (event.keyCode == 13) checkSpelling()" /><br />
+		  <input type="text" id="spellGuess" onkeyup="if(event.keyCode == 13) { checkSpelling() }" onkeypress="if (event.keyCode == 32 || event.keyCode == 9) { event.preventDefault(); return false; }" /><br />
 		  <button id="advanceButton" onclick="checkSpelling(); focusText();">Check Spelling</button><br />
 		  <button id="showMeButton" onclick="showMe(); focusText();">Show Me</button><br />
 		</div>
