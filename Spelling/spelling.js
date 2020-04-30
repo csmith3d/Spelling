@@ -44,12 +44,14 @@ var initializedSpeech = 0;
 var spellingLists = [
   ["better", "follow", "happen", "different", "people", "trouble", "terrible", "awesome", "special"],
   ["enough", "through", "goes", "does", "question", "slowly", "suddenly", "probably", "trouble"],
-	["younger", "too ! . (as in also)", "to ! . (a direction)", "two ! . (a number)", "tries", "children", "different", "other", "introduction", "should", "number"]
+	["younger", "too ! . (as in also)", "to ! . (a direction)", "two ! . (a number)", "tries", "children", "different", "other", "introduction", "should", "number"],
+	["there ! . (as in . there are  . or  . over there)", "they're . (as in .  they . are.)", "their . (belonging to them.)", "turned", "intelligent", "secret", "music", "magical", "laugh", "oops"]
 ];
 var pronunciationLists = [
   ["bet er", "fole ow", "happ enn", "diff fer ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
   ["ee nuff", "through", "goes", "does", "quest ion", "slow lee", "sud enn lee", "pro bab lee", "trow-ooh bleh"],
-	["yoh-un ger", "too", "to", "two", "tries", "child ren", "diff fer ent", "oth er", "in tro duct ion", "show uld", "num ber"]
+	["yoh-un ger", "too", "to", "two", "tries", "child ren", "diff fer ent", "oth er", "in tro duct ion", "show uld", "num ber"],
+	["there", "they're", "their", "turn ed", "in tell i gent", "sec ret", "music", "mag i cal", "lah oo guh huh", "oops"]
 ];
 
 var correct = [];
