@@ -45,7 +45,7 @@ var spellingLists = [
   ["better", "follow", "happen", "different", "people", "trouble", "terrible", "awesome", "special"],
   ["enough", "through", "goes", "does", "question", "slowly", "suddenly", "probably", "trouble"],
 	["younger", "too . ! (as in also)", "to . ! (a direction)", "two . ! (a number)", "tries", "children", "different", "other", "introduction", "should", "number"],
-	["there. ! (as in) . . ! ... (there are.) ! ... (or.) ! ...  (over there)", "they're. ! ... (as in). ! ...  (they). ! ... (are. !)", "their. ! ... (as in). ! ... (belonging to them). ! ...)", "turned", "intelligent", "secret", "music", "magical", "laugh", "oops"]
+	["there . ! (as in) . . ! ... (there are.) ! ... (or.) ! ...  (over there)", "they're . ! ... (as in). ! ...  (they). ! ... (are. !)", "their . ! ... (as in). ! ... (belonging to them). ! ...)", "turned", "intelligent", "secret", "music", "magical", "laugh", "oops"]
 ];
 var pronunciationLists = [
   ["bet er", "fole ow", "happ enn", "diff fer ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
