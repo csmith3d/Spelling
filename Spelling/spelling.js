@@ -47,7 +47,8 @@ var spellingLists = [
 	["younger", "too . ! (as in also)", "to . ! (a direction)", "two . ! (a number)", "tries", "children", "different", "other", "introduction", "should", "number"],
 	["there . ! (as in) . . ! ... (there are.) ! ... (or.) ! ...  (over there)", "they're . ! ... (as in). ! ...  (they). ! ... (are. !)", "their . ! ... (as in). ! ... (belonging to them). ! ...)", "turned", "intelligent", "secret", "music", "magical", "laugh", "oops"],
 	["please", "nurse", "gem", "fairy", "fairies", "prominent", "american", "objects", "families", "trampoline"],
-	["space", "rangers", "because", "choose", "chose", "guide", "really", "student", "video", "usually"]
+	["space", "rangers", "because", "choose", "chose", "guide", "really", "student", "video", "usually"],
+	["golf", "great .... ! (as in ... ! . awesome)", "rice", "person", "aunt ... ! (as in your parent's sister)", "machine", "scent ... ! (as in the way something smells)", "cross", "guess", "detector"]
 ];
 var pronunciationLists = [
   ["bet er", "fole ow", "happ enn", "diff fer ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
@@ -55,7 +56,8 @@ var pronunciationLists = [
 	["yoh-un ger", "too", "to", "two", "tries", "child ren", "diff fer ent", "oth er", "in tro duct ion", "show uld", "num ber"],
 	["there", "they're", "their", "turn ed", "in tell i gent", "sec ret", "music", "mag i cal", "lah ooh guh huh", "oops"],
 	["plea ah seh", "noorse", "gem", "fair e", "fair i-ease", "pro min ent", "am er i can", "ob jects", "fam i lie-ease", "tramp o line"],
-	["ess pace", "rangers", "be cause", "choose", "chose", "goo ide", "real lee", "stew dent", "vid e oh", "you sue al lee"]
+	["ess pace", "rangers", "be cause", "choose", "chose", "goo ide", "real lee", "stew dent", "vid e oh", "you sue al lee"],
+	["golf", "great", "rice", "per son", "awnt", "mah chine", "skent", "cross", "goo ess", "de tect or"]
 ];
 
 var correct = [];
