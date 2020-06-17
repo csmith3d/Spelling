@@ -421,21 +421,24 @@ function settingsOK() {
 //User clicked cancel -- replace settings with stored values
 function settingsCancel() {
 
-    blurAll();
+  blurAll();
 
-    //reset the voices selector
-    speechVoiceSelectorElem.options[voiceIndex].selected = true;
+  //reset the voices selector
+  speechVoiceSelectorElem.options[voiceIndex].selected = true;
 
-    //reset the speech rate
-    var numOptions = speechRateSelectorElem.options.length;
-    for(var i=0; i<numOptions; i++) {
-	if(speechRateSelectorElem.options[i].value == rate) {
+  //reset the speech rate
+  var numOptions = speechRateSelectorElem.options.length;
+  for(var i=0; i<numOptions; i++) {
+		if(speechRateSelectorElem.options[i].value == rate) {
 	    speechRateSelectorElem.options[i].selected = true;
-	}
-    }
+		}
+  }
 
-    //finally, hide the panel
-    settingsElem.style.visibility="hidden";
+	//reset the list selector
+	spellingListSelectorElem.selectedIndex = currList;
+
+  //finally, hide the panel
+  settingsElem.style.visibility="hidden";
 }
 
 //In theory, if the appcache file is updated, the app will find out
