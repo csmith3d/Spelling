@@ -66,6 +66,8 @@ var pronunciationLists = [
 
 var correct = [];
 var currList = 0;
+var currWords = [];
+var currPronunciations = [];
 var currWordIndex = 0;
 var failOnCurrent = 0;
 
@@ -103,19 +105,32 @@ var progressDivElem;
 ///////////////////////////////////////////
 // Functions
 
-function shuffleListOrder(listIndex) {
-	for(let i=spellingLists[listIndex].length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[spellingLists[listIndex][i], spellingLists[listIndex][j]] = [spellingLists[listIndex][j], spellingLists[listIndex][i]];
-		[pronunciationLists[listIndex][i], pronunciationLists[listIndex][j]] = [pronunciationLists[listIndex][j], pronunciationLists[listIndex][i]];
+function shuffleListsOrder() {
+	for(var i=currWords.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		[currWords[i], currWords[j]] = [currWords[j], currWords[i]];
+		[currPronunciations[i], currPronunciations[j]] = [currPronunciations[j], currPronunciations[i]];
 	}
 }
 
 
-//Initialize correct array
-function initializeCorrect(listIndex) {
+//Initialize correct, currWords, and currPronunciations arrays
+function initializeCurrLists(listIndex) {
   correct = [];
-  for(var i=0; i<spellingLists[listIndex].length; i++) {
+	currWords = [];
+	currPronunciations = [];
+	//First we want to grab one word from another a previous list at random
+	//  just to spice things up
+	currWords = [...spellingLists[listIndex]]; //spread operator shallow copy
+	currPronunciations = [...pronunciationLists[listIndex]];
+	if (listIndex > 0) {
+		//we have a previous list to select a word from
+		var otherListIndex = Math.floor(Math.random() * listIndex);
+		var otherWordIndex = Math.floor(Math.random() * spellingLists[otherListIndex].length);
+		currWords.push(spellingLists[otherListIndex][otherWordIndex]);
+		currPronunciations.push(pronunciationLists[otherListIndex][otherWordIndex]);
+	}
+  for(var i=0; i<currWords.length; i++) {
 		correct[i] = 0;
   }
 }
@@ -123,19 +138,19 @@ function initializeCorrect(listIndex) {
 function restart() {
   currWordIndex = 0;
   state = 0;
-  initializeCorrect(currList);
+  initializeCurrLists(currList);
   failOnCurrent = 0;
-	shuffleListOrder(currList);
+	shuffleListsOrder();
   setProgress();
 }
 
 
-function getWord(listNum, wordNum) {
-  return spellingLists[listNum][wordNum].replace(/\s.*/g, "");
+function getWord(wordNum) {
+  return currWords[wordNum].replace(/\s.*/g, "");
 }
 
-function getWordForSaying(listNum, wordNum) {
-	return spellingLists[listNum][wordNum];
+function getWordForSaying(wordNum) {
+	return currWords[wordNum];
 }
 
 function toTitleCase(str) {
@@ -146,8 +161,8 @@ function toTitleCase(str) {
     }
   );
 }
-function getPronunciation(listNum, wordNum) {
-  var p = toTitleCase(pronunciationLists[listNum][wordNum]);
+function getPronunciation(wordNum) {
+  var p = toTitleCase(currPronunciations[wordNum]);
   p = p.replace(/\s/g, "... ") + "...";
   return p;
 }
@@ -172,10 +187,11 @@ function readWordsTest() {
   rate = speechRateSelectorElem.options[rateIndex].value;
 
   for(var j=0; j<spellingLists.length; j++) {
-		for(var i=0; i<spellingLists[j].length; i++) {
+		initializeCurrLists(j);
+		for(var i=0; i<currWords.length; i++) {
 	    if(true) {//confirm("Say next?")) {
-				var word = getWordForSaying(j,i);
-				var pronunciation = getPronunciation(j,i);
+				var word = getWordForSaying(i);
+				var pronunciation = getPronunciation(i);
 				sayIt(word + "...");
 				sayIt(pronunciation + "...");
 	    } else {
@@ -191,14 +207,14 @@ function readCurrWord() {
   var rateIndex = speechRateSelectorElem.selectedIndex;
   rate = speechRateSelectorElem.options[rateIndex].value;
 
-  sayIt(getWordForSaying(currList, currWordIndex));
+  sayIt(getWordForSaying(currWordIndex));
 
 }
 
 function advanceToNextWord() {
   var correctCount = 0;
   var startIndex = currWordIndex;
-  var numWords = spellingLists[currList].length;
+  var numWords = currWords.length;
   for(var i=1; i<=numWords; i++) {
 		var testIndex = startIndex + i;
 		if(testIndex >= numWords) {
@@ -216,7 +232,7 @@ function advanceToNextWord() {
 
 function checkSpelling() {
   var guess = spellGuessElem.value.toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
-  var word = getWord(currList, currWordIndex);
+  var word = getWord(currWordIndex);
   if(!word.localeCompare(guess)) {
 		//Correct
 		sayIt("That's correct! . !");
@@ -235,14 +251,14 @@ function checkSpelling() {
 		//Incorrect
 		failOnCurrent = 1;
 		sayIt("Not quite. !");
-		sayIt(getWordForSaying(currList, currWordIndex)+ ". !");
-		sayIt(getPronunciation(currList, currWordIndex));
+		sayIt(getWordForSaying(currWordIndex)+ ". !");
+		sayIt(getPronunciation(currWordIndex));
   }
 }
 
 function setProgress() {
   htmlContent = "<table>";
-  for(var i=0; i<spellingLists[currList].length; i++) {
+  for(var i=0; i<currWords.length; i++) {
 		htmlContent += "<tr><td>";
 		if(i == currWordIndex) {
 	    htmlContent += "&rarr;";
@@ -260,7 +276,7 @@ function setProgress() {
 }
 
 function showMe() {
-  spellGuessElem.value = getWord(currList, currWordIndex);
+  spellGuessElem.value = getWord(currWordIndex);
 }
 
 //Called by an onload on the body
