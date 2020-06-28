@@ -50,7 +50,8 @@ var spellingLists = [
 	["space", "rangers", "because", "choose", "chose", "guide", "really", "student", "video", "usually"],
 	["golf", "great .... ! (as in ... ! . awesome)", "rice", "person", "aunt ... ! (as in your parent's sister)", "machine", "scent ... ! (as in the way something smells)", "cross", "guess", "detector"],
 	["toilet", "picture", "photo", "junction", "adventure", "normal", "tube (like a pipe)", "general", "weird", "recommend"],
-	["change", "pushed", "immature", "depends", "again", "skinnier", "burnt", "human", "sooty", "tern ... ! (as in the bird)"]
+	["change", "pushed", "immature", "depends", "again", "skinnier", "burnt", "human", "sooty", "tern ... ! (as in the bird)"],
+	["tie", "dye .... ! (as in ... !. ink)", "writing .... ! (as in authorship)", "triangle", "arabic", "related", "maybe", "religious", "uncle", "brought .... ! (as in past tense of bring)"]
 ];
 var pronunciationLists = [
   ["bet er", "fole ow", "happ enn", "diff fer ent", "pee-o pleh", "trow-ooh bleh", "tehr ih bleh", "awe some", "speh see-al"],
@@ -61,7 +62,8 @@ var pronunciationLists = [
 	["ess pace", "rangers", "be cause", "choose", "chose", "goo ide", "real lee", "stew dent", "vid e oh", "you sue al lee"],
 	["golf", "great", "rice", "per son", "awnt", "mah chine", "skent", "cross", "goo ess", "de tect or"],
 	["toy let", "pick chure", "pah hoe toe", "junc shun", "ad ven chure", "nor mal", "tube", "gen er al", "weird", "re com mend"],
-	["chan ghee", "push ed", "im ma ture", "dee pends", "a gain", "skinnier", "burn t", "hu man", "soot e", "tern"]
+	["chan ghee", "push ed", "im ma ture", "dee pends", "a gain", "skinnier", "burn t", "hu man", "soot e", "tern"],
+	["tie", "d yeh", "wuh rite ing", "try angle", "arab ic", "re late ed", "may be", "re lig i o us", "un clee", "bro oog huh ta"]
 ];
 
 var correct = [];
