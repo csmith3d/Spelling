@@ -237,15 +237,17 @@ function checkSpelling() {
   var word = getWord(currWordIndex);
   if(!word.localeCompare(guess)) {
 		//Correct
-		sayIt("That's correct! . !");
 		correct[currWordIndex] = !failOnCurrent;
 		spellGuessElem.value = "";
 		if(!advanceToNextWord()) {
 	    //Done!
-	    alert("You Got Them All!");
+			var celebrationWords = ["Yippee!", "Yee-haw!", "Woo-hoo!", "Hooray!", "Wahoo!"];
+			sayIt(celebrationWords[Math.floor(Math.random()*celebrationWords.length)]);
+			alert("You Got Them All!");
 	    restart();
 	    return;
 		}
+		sayIt("That's correct! . !");
 		failOnCurrent = 0;
 		setProgress();
 		readCurrWord();
@@ -279,6 +281,7 @@ function setProgress() {
 
 function showMe() {
   spellGuessElem.value = getWord(currWordIndex);
+	failOnCurrent = 1;
 }
 
 //Called by an onload on the body
